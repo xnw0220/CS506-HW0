@@ -49,7 +49,10 @@ def standardize(X):
 
     for i in range(len(X)):
         for j in range(len(X[0])):
-            X[i][j] = (X[i][j] - all_mean[j]) / std[j]
+            if std[j] == 0:
+                continue
+            else:
+                X[i][j] = (X[i][j] - all_mean[j]) / std[j]
 
     return X
         
